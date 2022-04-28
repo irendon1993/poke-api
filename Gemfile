@@ -46,6 +46,11 @@ gem 'bootstrap'
 
 gem 'excon'
 
+gem 'faraday'
+
+gem 'rest-client'
+gem 'json'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
