@@ -50,6 +50,8 @@ gem 'faraday'
 
 gem 'rest-client'
 gem 'json'
+gem 'pry'
+gem 'open-uri'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
