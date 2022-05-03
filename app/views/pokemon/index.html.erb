@@ -1,12 +1,12 @@
 <div class="result-box">
   <div align="center">
-    <h1><%= @pokemon[:name].capitalize %></h1>
+    <h1><%= @pokemonApi[:name].capitalize %></h1>
   </div>
 
   <div align="center">
-    <p>PokeDex Number: <%= @pokemon[:id] %></p>
-    <%= image_tag "#{@pokemon[:sprites][:front_default]}" %>
-    <p>Type:<%= @pokemon[:types].first[:type][:name].capitalize %></span>
+    <p>PokeDex Number: <%= @pokemonApi[:id] %></p>
+    <%= image_tag "#{@pokemonApi[:sprites][:front_default]}" %>
+    <p>Type:<%= @pokemonApi[:types].first[:type][:name].capitalize %></span>
   </div>
   
   <%= form_tag '/pokemon', method: :get do %>
