@@ -1,19 +1,16 @@
 class PokemonController < ApplicationController
   def index
-    pokemon = params[:pokemon]
-    pokelist = []
-    pokestats = {}
-    conn = Faraday.new("https://pokeapi.co")
-    response = conn.get("/api/v2/pokemon/#{pokemon}/")
-    @pokemonApi = JSON.parse(response.body, symbolize_names: true)
-    pokestats.store("pokeid",@pokemonApi[:id])
-    pokestats.store("name",@pokemonApi[:name])
-    pokestats.store("imageURL",@pokemonApi[:sprites][:front_default])
-    pokestats.store("type",@pokemonApi[:types].first[:type][:name].capitalize)
-    pokelist.push(pokestats)
-    # require 'pry'; binding.pry
+    @pokemons = Pokemon.all
+    render json: @pokemons, status: 200
+  end
 
-    
+  def show
+    @pokemon = Pokemon.find(params[:pokeid])
+    if @pokemon
+      render json: @pokemon, status: 200
+    else
+      render json: {error: "Pokemon not found"}
+    end
   end
 
   def new
@@ -29,4 +26,4 @@ private
   def pokemon_params
     params.require(:pokemon).permit(:pokeid, :name, :imageURL, :type)
   end
-end
+
