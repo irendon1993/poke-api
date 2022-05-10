@@ -52,7 +52,7 @@ gem 'rest-client'
 gem 'json'
 gem 'pry'
 gem 'open-uri'
-
+gem 'rack-cors'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
