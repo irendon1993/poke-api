@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get "/pokemon", to: "pokemon#index"
   get "/pokemon/:pokeid", to: "pokemon#show"
+  post "/create", to: "pokemon#create"
 
   resources :pokemons, param: :pokeid
 

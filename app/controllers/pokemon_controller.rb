@@ -19,11 +19,11 @@ class PokemonController < ApplicationController
 
   def create
     @pokemon = Pokemon.new(pokemon_params)
+   
   end
-end
 
 private
   def pokemon_params
-    params.require(:pokemon).permit(:pokeid, :name, :imageURL, :type)
+    params.require(:pokemon).permit(:pokeid, :name, :iamgeurl)
   end
-
+end
