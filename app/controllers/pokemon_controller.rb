@@ -19,7 +19,12 @@ class PokemonController < ApplicationController
 
   def create
     @pokemon = Pokemon.new(pokemon_params)
-   
+
+    if @pokemon.update(pokemon_params)
+      redirect_to @pokemon
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
 private
