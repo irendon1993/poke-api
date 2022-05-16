@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   get "/pokemon/:pokeid", to: "pokemon#show"
   post "/create", to: "pokemon#create"
 
-  get "/sign_up", to: "user#new"
+  post "/sign_up", to: "registrations#create"
 
   resources :pokemons, param: :pokeid
+
 
 end
