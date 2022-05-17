@@ -1,13 +1,13 @@
 class RegistrationsController < ApplicationController
  
   def new
-    @user = User.new
+    @trainer = Trainer.new
   end
   
   def create
-    @user = Trainer.new(user_params)
-    if @user.save
-      session[:user_id] = @user.id
+    @trainer = Trainer.new(user_params)
+    if @trainer.save
+      session[:trainer_id] = @trainer.id
       redirect_to root_path
     else
       render :new
@@ -15,8 +15,12 @@ class RegistrationsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    
+    @trainer = Trainer.find(params[:trainer_id])
+    if @trainer
+      render json: @trainer, status: 200
+    else
+      render json: {error: "Trainer not found"}
+    end
   end
 
 

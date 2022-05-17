@@ -53,6 +53,7 @@ gem 'json'
 gem 'pry'
 gem 'open-uri'
 gem 'rack-cors'
+gem 'rails_same_site_cookie'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
