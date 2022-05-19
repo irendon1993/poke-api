@@ -1,0 +1,2 @@
+class PokeMaster < ApplicationRecord
+end

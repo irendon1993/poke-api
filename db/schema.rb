@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_16_164544) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_19_201336) do
+  create_table "masters", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "poke_party", default: "--- []\n"
+    t.index "\"party\"", name: "index_masters_on_party"
+  end
+
   create_table "pokemons", force: :cascade do |t|
     t.string "pokeid"
     t.string "name"
@@ -20,11 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_164544) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "trainers", force: :cascade do |t|
-    t.string "username", null: false
-    t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+# Could not dump table "trainers" because of following StandardError
+#   Unknown type 'array' for column 'party'
 
 end
