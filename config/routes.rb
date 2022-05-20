@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   get "/trainer/:trainer_id", to: "registrations#show"
   post "/sign_up", to: "registrations#create"
 
+  get "master/:id", to: "masters#show"
+  get "master", to: "masters#index"
+
   resources :pokemons, param: :pokeid
+  resources :masters, param: :id
 
 
 end
