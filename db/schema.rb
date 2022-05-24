@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_19_201336) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_23_182617) do
   create_table "masters", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -30,5 +30,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_19_201336) do
 
 # Could not dump table "trainers" because of following StandardError
 #   Unknown type 'array' for column 'party'
+
+  create_table "zones", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "wild_pokemon", default: "--- []\n"
+    t.text "directions", default: "--- []\n"
+  end
 
 end
