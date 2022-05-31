@@ -11,11 +11,13 @@ Rails.application.routes.draw do
 
   get "master/:id", to: "masters#show"
   get "master", to: "masters#index"
+  put "master/:id/zone_update", to: "masters#update"
+
 
   get "zone/:id", to: "zones#show"
 
   resources :pokemons, param: :pokeid
-  resources :masters, param: :id
+  resources :masters, param: :id 
 
 
 end
