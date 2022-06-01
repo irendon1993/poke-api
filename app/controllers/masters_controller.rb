@@ -10,8 +10,11 @@ class MastersController < ApplicationController
 
   def update
     @master = Master.find(params[:id]).update_attribute(:currentZone, params[:zone])
-
-    
+    if @master
+      render json: @master, status: 200
+    else
+      render json: {error: "Could not change zone"}
+    end
   end
 
 
