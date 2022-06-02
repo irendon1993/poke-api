@@ -17,6 +17,15 @@ class MastersController < ApplicationController
     end
   end
 
+  def add_to_pc 
+    @master = Master.find(params[:id]).update_attribute(:poke_party, params[:pokemon])
+    if @master
+      render json: @master, status: 200
+    else
+      render json: {error: "Pokemon added to party"}
+    end
+  end
+
 
   def show
     @master = Master.find(params[:id])
