@@ -18,6 +18,10 @@ Rails.application.routes.draw do
 
   get "zone/:id", to: "zones#show"
 
+  get "game/:id", to: "games#show"
+  get "game", to: "games#index"
+
+
   resources :pokemons, param: :pokeid
   resources :masters, param: :id 
 
