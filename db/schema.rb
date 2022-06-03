@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_03_133406) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_03_140057) do
   create_table "masters", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_03_133406) do
     t.text "poke_party", default: "--- []\n"
     t.string "currentZone"
     t.string "current_pokemon"
+    t.text "pc", default: "--- []\n"
     t.index "\"party\"", name: "index_masters_on_party"
   end
 
