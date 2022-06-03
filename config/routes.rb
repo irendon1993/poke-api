@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "master", to: "masters#index"
   put "master/:id/zone_update", to: "masters#update"
   put "master/:id/pc_update", to: "masters#add_to_pc"
+  put "master/:id/pokemon_update", to: "masters#current_pokemon"
 
 
   get "zone/:id", to: "zones#show"

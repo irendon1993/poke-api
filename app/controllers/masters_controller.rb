@@ -17,6 +17,15 @@ class MastersController < ApplicationController
     end
   end
 
+  def current_pokemon
+    @master = Master.find(params[:id]).update_attribute(:current_pokemon, params[:pokemon])
+    if @master
+      render json: @master, status: 200
+    else
+      render json: {error: "Could not change zone"}
+    end
+  end
+
   def add_to_pc 
     @master = Master.find(params[:id]).update_attribute(:poke_party, params[:pokemon])
     if @master
