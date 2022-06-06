@@ -35,6 +35,15 @@ class MastersController < ApplicationController
     end
   end
 
+  def add_pics
+    @master = Master.find(params[:id]).update_attribute(:pic_array, params[:pokemon])
+    if @master
+      render json: @master, status: 200
+    else
+      render json: {error: "Pokemon added to party"}
+    end
+  end
+
 
   def show
     @master = Master.find(params[:id])
@@ -45,9 +54,22 @@ class MastersController < ApplicationController
     end
   end
 
+  def create_master
+    @master = Master.new(master_params)
+
+    if @master.update(master_params)
+      redirect_to @master
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+
+
+
   private
     def master_params
-      params.require(:master).permit(:id, :next_zone)
+      params.require(:master).permit(:id,:name, :next_zone)
     end  
 
 end
