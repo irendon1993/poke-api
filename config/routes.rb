@@ -9,13 +9,14 @@ Rails.application.routes.draw do
   get "/trainer/:trainer_id", to: "registrations#show"
   post "/sign_up", to: "registrations#create"
 
-  get "master/:id", to: "masters#show"
+  get "master/find/:id", to: "masters#show"
   get "master", to: "masters#index"
   put "master/:id/zone_update", to: "masters#update"
   put "master/:id/pc_update", to: "masters#add_to_pc"
   put "master/:id/pokemon_update", to: "masters#current_pokemon"
   put "master/:id/pics_update", to: "masters#add_pics"
   post "master/create_master", to: "masters#create_master"
+  get "master/last", to: "masters#last_master"
 
 
 

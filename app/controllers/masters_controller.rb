@@ -64,6 +64,16 @@ class MastersController < ApplicationController
     end
   end
 
+  def last_master
+    @master = Master.last
+    if @master
+      render json: @master, status: 200
+    else
+      render json: {error: "Master not found"}
+    end
+
+  end
+
 
 
 

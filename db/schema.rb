@@ -36,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_152846) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "poke_party", default: "--- []\n"
-    t.string "currentZone"
+    t.string "currentZone", default: "0"
     t.string "current_pokemon"
     t.text "pc", default: "--- []\n"
     t.text "pic_array", default: "--- []\n"
