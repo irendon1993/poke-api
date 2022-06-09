@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   put "master/:id/pc_update", to: "masters#add_to_pc"
   put "master/:id/pokemon_update", to: "masters#current_pokemon"
   put "master/:id/pics_update", to: "masters#add_pics"
+  put "master/:id/pokeballs_update", to: "masters#update_pokeballs"
   post "master/create_master", to: "masters#create_master"
   get "master/last", to: "masters#last_master"
 

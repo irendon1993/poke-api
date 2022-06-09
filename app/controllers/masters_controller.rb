@@ -74,6 +74,14 @@ class MastersController < ApplicationController
 
   end
 
+  def update_pokeballs
+    @master = Master.find(params[:id]).update_attribute(:pokeballs, params[:pokeballs])
+    if @master
+      render json: @master, status: 200
+    else
+      render json: {error: "Couldn't update pokeballs"}
+    end
+  end
 
 
 
