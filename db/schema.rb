@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_09_154013) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_14_180708) do
   create_table "game2s", force: :cascade do |t|
     t.string "game_state"
     t.datetime "created_at", null: false
@@ -62,6 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_09_154013) do
     t.text "wild_pokemon", default: "--- []\n"
     t.text "directions", default: "--- []\n"
     t.text "next_zone", default: "--- []\n"
+    t.string "zone_description"
   end
 
 end
