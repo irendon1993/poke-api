@@ -21,7 +21,9 @@ Rails.application.routes.draw do
 
 
 
-  get "zone/:id", to: "zones#show"
+  # get "zone/:id", to: "zones#show"
+  
+
 
   get "game2/:id", to: "game2s#show"
   get "game2", to: "game2s#index"
@@ -31,6 +33,7 @@ Rails.application.routes.draw do
 
   resources :pokemons, param: :pokeid
   resources :masters, param: :id 
+  resources :zones
 
 
 end

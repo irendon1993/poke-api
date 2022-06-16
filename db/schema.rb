@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_06_14_180708) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "game2s", force: :cascade do |t|
     t.string "game_state"
     t.datetime "created_at", null: false
@@ -28,20 +31,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_14_180708) do
     t.string "game_state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "current_trainer"
   end
 
   create_table "masters", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "poke_party", default: "--- []\n"
+    t.json "poke_party", default: []
     t.string "currentZone"
     t.string "current_pokemon"
-    t.text "pc", default: "--- []\n"
-    t.text "pic_array", default: "--- []\n"
+    t.json "pc", default: []
+    t.json "pic_array", default: []
     t.string "pokeballs"
-    t.index "\"party\"", name: "index_masters_on_party"
   end
 
   create_table "pokemons", force: :cascade do |t|
@@ -53,15 +54,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_14_180708) do
     t.datetime "updated_at", null: false
   end
 
-# Could not dump table "trainers" because of following StandardError
-#   Unknown type 'array' for column 'party'
-
   create_table "zones", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "wild_pokemon", default: "--- []\n"
-    t.text "directions", default: "--- []\n"
-    t.text "next_zone", default: "--- []\n"
+    t.json "wild_pokemon", default: []
+    t.json "directions", default: []
+    t.json "next_zone", default: []
     t.string "zone_description"
   end
 

@@ -1,7 +1,17 @@
 class ZonesController < ApplicationController
   def index
-    @zone = Zone.all
-    render json: @zone, status: 200
+    @zones = Zone.all
+    render json: @zones, status: 200
+  end
+
+  def create
+    @zone = Zone.new(zone_params)
+
+    if @zone.update(zone_params)
+      redirect_to @zone
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -12,4 +22,12 @@ class ZonesController < ApplicationController
       render json: {error: "Zone not found"}
     end
   end
+
+
+
+private
+def zone_params
+  params.require(:zone).permit(:id, :zone_description, :wild_pokemon => [], :directions => [], :next_zone => [])
+end  
+
 end
