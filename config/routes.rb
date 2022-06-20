@@ -18,10 +18,13 @@ Rails.application.routes.draw do
   put "master/:id/pokeballs_update", to: "masters#update_pokeballs"
   post "master/create_master", to: "masters#create_master"
   get "master/last", to: "masters#last_master"
-
-
-
+  
+  
+  
   # get "zone/:id", to: "zones#show"
+  put "zone/:id/zone_update", to: "zones#update_next_zones"
+  put "zone/:id/directions_update", to: "zones#update_directions"
+  put "zone/:id/description_update", to: "zones#update_zone_description"
   
 
 

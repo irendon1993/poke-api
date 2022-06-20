@@ -23,7 +23,31 @@ class ZonesController < ApplicationController
     end
   end
 
+  def update_next_zones
+    @zone = Zone.find(params[:id]).update_attribute(:next_zone, params[:next_zone])
+    if @zone
+      render json: @zone, status: 200
+    else
+      render json: {error: "Couldn't update zones"}
+    end
+  end
+  def update_directions
+    @zone = Zone.find(params[:id]).update_attribute(:directions, params[:directions])
+    if @zone
+      render json: @zone, status: 200
+    else
+      render json: {error: "Couldn't update zone directions"}
+    end
+  end
 
+  def update_zone_description
+    @zone = Zone.find(params[:id]).update_attribute(:zone_description, params[:zone_description])
+    if @zone
+      render json: @zone, status: 200
+    else
+      render json: {error: "Couldn't update zone deprecation"}
+    end
+  end
 
 private
 def zone_params
